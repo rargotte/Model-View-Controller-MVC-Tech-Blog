@@ -17,12 +17,6 @@ Comment.init(
       allowNull: false,
     },
 
-    creation_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: sequelize.now
-    },
-
     post_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -32,7 +26,7 @@ Comment.init(
     },
 
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',

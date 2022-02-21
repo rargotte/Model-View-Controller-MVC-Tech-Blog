@@ -3,12 +3,12 @@ const { Post } = require('../models');
 const postdata = [
   {
     title: 'Sequelize',
-    Content: 'Sequelize is an engine to enhance and improve SQL commands',
+    content: 'Sequelize is an engine',
     user_id: 1
   },
   {
     title: 'SQL',
-    Content: 'SQL has an engine called sequelize that enhances SQL commands',
+    content: 'SQL has an engine',
     user_id: 2
   },
 
