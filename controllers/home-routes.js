@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment } = require('../models');
+const { Post, Comment, User } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
@@ -10,22 +10,30 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ['content', 'user_id'],
+          attributes: ['id', 'commentary'],
+          include: {
+            model: User,
+            attributes: ['username'],
+          }
+        },
+        {
+          model: User,
+          attributes: ['username'],
         },
       ],
     });
+
     const posts = dbPostData.map((post) =>
       post.get({ plain: true })
     );
-
+    console.log(posts);
     res.render('homepage', {
       posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
-    console.log("ERROR: " + err)
-  } 
+  }
 });
 
 // GET one post
@@ -36,16 +44,21 @@ router.get('/post/:id', withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: [
-            'id',
-            'content',
-            'user_id',
-          ],
+          attributes: ['id', 'commentary'],
+          include: {
+            model: User,
+            attributes: ['username'],
+          }
+        },
+        {
+          model: User,
+          attributes: ['username'],
         },
       ],
-    });
+    })
 
     const post = dbPostData.get({ plain: true });
+    console.log(post);
     res.render('post', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);

@@ -12,9 +12,9 @@ Comment.init(
       autoIncrement: true,
     },
 
-    content: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    commentary: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
 
     post_id: {
@@ -37,7 +37,7 @@ Comment.init(
   {
     sequelize,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'comment',
   }
 );

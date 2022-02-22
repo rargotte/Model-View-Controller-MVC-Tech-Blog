@@ -66,15 +66,15 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.post {
+/*.gallery {
   flex: 4;
   background-color: #fff;
   padding: 50px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-}
+}*/
 
 .btn-no-style {
   background: none;
@@ -144,7 +144,7 @@ img {
   font-weight: bold;
 }
 
-.post-name {
+.gallery-name {
   text-transform: uppercase;
   letter-spacing: 3px;
   text-shadow: 2px 2px 5px var(--secondary);
