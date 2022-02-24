@@ -89,7 +89,6 @@ router.get('/post/comment/:id', async (req, res) => {
     })
 
     const post = dbPostData.get({ plain: true });
-    console.log(post);
     res.render('post-comment', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
