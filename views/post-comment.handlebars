@@ -1,0 +1,22 @@
+<section class="container">
+    <div class="gallery-name">
+        <h2>{{post.title}}</h2>
+        <h4>{{post.content}}</h4>
+        <p>{{post.user.username}}</p>
+        <p>{{format_date post.createdAt}}</p>
+    </div>
+    <section class="flex-row justify-center">
+        <div class="card">
+            <h2 class="page-title">Your Comment</h2>
+            <form class="form comment-form">
+                <div class="form-group">
+                    <label for="comment-input">Comment:</label>
+                    <input class="form-input" type="text"  />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" id="{{post.id}}" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</section>
