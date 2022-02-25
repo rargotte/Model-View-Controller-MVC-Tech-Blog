@@ -1,9 +1,8 @@
 <section class="card">
-<!--  <a href="/comment/{{id}}">-->
-    <header>{{commentary}}</header>
+  <header>{{commentary}}</header>
 
-    <div class="card-body">
-      <p>By: {{user.username}}</p>
-    </div>
-<!--  </a> -->
+  <div class="card-body">
+    <p>By: {{user.username}}</p>
+    <p>on: {{format_date createdAt}}</p>
+  </div>
 </section>
