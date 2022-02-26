@@ -113,4 +113,61 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// GET all posts for dashboard - user-id
+router.get('/dashboard', async (req, res) => {
+  try {
+
+    const dbPostData = await Post.findAll({
+      where: {
+        user_id: req.session.userId
+      },
+      include: [
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'commentary',
+            'createdAt'
+          ],
+          include: {
+            model: User,
+            attributes: ['username'],
+          }
+        },
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+
+    });
+
+    const posts = dbPostData.map((post) =>
+      post.get({ plain: true })
+    );
+    res.render('dash_home', {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET /dashboard/post
+router.get('/dashboard/post', async (req, res) => {
+  try {
+
+    res.render('dash_post', {
+      loggedIn: req.session.loggedIn,
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 module.exports = router;

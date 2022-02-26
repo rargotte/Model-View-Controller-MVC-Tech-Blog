@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
 
         });
 
-        res.status(201).json(dbCommentData);
+        res.status(201).json(dbCommentData)
 
     } catch (err) {
         console.log(err);

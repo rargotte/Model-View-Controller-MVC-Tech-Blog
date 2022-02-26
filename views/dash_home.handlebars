@@ -1,0 +1,8 @@
+<div class="card text-center">
+    <a href="/dashboard/post">
+    <button class="btn btn-primary type="submit">Create Post</button>
+    </a>
+</div>
+{{#each posts as |post|}}
+{{> post-details}}
+{{/each}}

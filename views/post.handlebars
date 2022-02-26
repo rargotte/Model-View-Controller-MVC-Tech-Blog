@@ -1,11 +1,11 @@
 <section class="container">
-  <div class="gallery-name">
-    <h2>{{post.title}}</h2>
-    <h4>{{post.content}}</h4>
-    <p>{{post.user.username}}</p>
-    <p>{{format_date post.createdAt}}</p>
+  <div class="card">
+    <div class="card-header">{{post.title}}</div>
+    <div class="card-body">{{post.content}}</div>
+    <div class="card-footer">{{post.user.username}}</div>
+    <div class="card-footer">{{format_date post.createdAt}}</div>
     <a href="/post/comment/{{post.id}}/">
-      <button id="Comment">Post a comment</button>
+      <button class="btn btn-info" id="Comment">Post a comment</button>
     </a>
   </div>
   <section class="flex-row justify-center">
