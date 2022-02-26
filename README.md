@@ -36,6 +36,8 @@ This is a CMS-style blog site, where developers can publish their blog posts and
 
   You can also access the application directly in Heroku via the following link:
 
+  https://mysterious-earth-40859.herokuapp.com/
+
 
   # Usage
   This application is a CMS-style blog site where people can publish articles, blog posts, thoughts and opinions on different matters.
